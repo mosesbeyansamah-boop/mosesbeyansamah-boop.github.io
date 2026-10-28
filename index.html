@@ -1,21 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Moses Samah's Computer Science and IT portfolio">
+
   <title>Moses Samah | Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
-</head>
-<body>
-  <div class="bg-orbs" aria-hidden="true"><i></i><i></i><i></i></div>
 
+  <!-- Profile photo styling -->
+  <style>
+    .profile-circle {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 48% 48% 30px 30px;
+      background: linear-gradient(145deg, #d9d5ff, #bceeed);
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .profile-placeholder[hidden],
+    .profile-photo[hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-orbs" aria-hidden="true">
+    <i></i><i></i><i></i>
+  </div>
+
+  <!-- HEADER -->
   <header class="site-header" id="header">
-    <a href="#home" class="logo"><span class="logo-mark">MS</span><span>Moses Samah</span></a>
+
+    <a href="#home" class="logo">
+      <span class="logo-mark">MS</span>
+      <span>Moses Samah</span>
+    </a>
+
     <nav id="nav" aria-label="Main navigation">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
@@ -29,206 +68,726 @@
       <a href="#goals">Goals</a>
       <a href="#contact">Contact</a>
     </nav>
+
     <div class="header-actions">
-      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode">☾</button>
-      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button id="themeToggle" class="icon-btn"
+        aria-label="Toggle dark mode">☾</button>
+
+      <button class="icon-btn menu-toggle" id="menuToggle"
+        aria-label="Open navigation" aria-expanded="false">☰</button>
     </div>
+
   </header>
 
   <main>
+
     <!-- HOME -->
     <section class="hero section-anchor" id="home">
+
       <div class="hero-text reveal">
-        <div class="pill"><span class="dot"></span> Welcome to my portfolio</div>
+
+        <div class="pill">
+          <span class="dot"></span>
+          Welcome to my portfolio
+        </div>
+
         <p class="eyebrow">Computer Science Student</p>
+
         <h1>Hi, I'm <span class="grad">Moses Samah.</span></h1>
-        <h2 class="tagline"><span id="typingText">Future Software Developer</span><span class="cursor">|</span></h2>
-        <p class="lead">I am a Computer Science student interested in software development, information technology, and networking. I enjoy learning new technologies, solving problems, and creating useful digital experiences.</p>
-        <p class="student">🎓 Studying at <strong>University of the Cordilleras</strong></p>
+
+        <h2 class="tagline">
+          <span id="typingText">Future Software Developer</span>
+          <span class="cursor">|</span>
+        </h2>
+
+        <p class="lead">
+          I am a Computer Science student interested in software
+          development, information technology, and networking.
+          I enjoy learning new technologies, solving problems,
+          and creating useful digital experiences.
+        </p>
+
+        <p class="student">
+          🎓 Studying at
+          <strong>University of the Cordilleras</strong>
+        </p>
+
         <div class="buttons">
           <a href="#projects" class="btn primary">Explore my work ↗</a>
           <a href="#contact" class="btn secondary">Contact me</a>
         </div>
+
         <div class="stats">
-          <div><strong>CS</strong><span>My field of study</span></div>
-          <div><strong>IT</strong><span>My interests</span></div>
-          <div><strong>∞</strong><span>Always learning</span></div>
+          <div>
+            <strong>CS</strong>
+            <span>My field of study</span>
+          </div>
+
+          <div>
+            <strong>IT</strong>
+            <span>My interests</span>
+          </div>
+
+          <div>
+            <strong>∞</strong>
+            <span>Always learning</span>
+          </div>
         </div>
+
       </div>
 
+      <!-- PROFILE PHOTO -->
       <div class="hero-image reveal">
+
         <div class="photo-wrap">
+
           <div class="profile-circle">
-            <img id="profilePreview" class="profile-photo" alt="Moses Samah profile photo" hidden>
-            <div class="profile-placeholder" id="profilePlaceholder"><span class="avatar-head"></span><span class="avatar-body"></span></div>
+
+            <!-- Your photo: save your uploaded image as profile-photo.jpg -->
+            <img
+              id="profilePreview"
+              class="profile-photo"
+              src="profile-photo.jpg"
+              alt="Moses Samah profile photo"
+              onerror="this.hidden=true; document.getElementById('profilePlaceholder').hidden=false;"
+            >
+
+            <!-- Fallback if the photo file is missing -->
+            <div
+              class="profile-placeholder"
+              id="profilePlaceholder"
+              hidden
+            >
+              <span class="avatar-head"></span>
+              <span class="avatar-body"></span>
+            </div>
+
           </div>
+
           <span class="float-chip c1">💻 Code</span>
           <span class="float-chip c2">🌐 Networks</span>
           <span class="float-chip c3">🚀 Growth</span>
+
         </div>
-        <label class="photo-upload" for="photoInput">📷 Upload your photo</label>
-        <input type="file" id="photoInput" accept="image/*" hidden>
+
+        <label class="photo-upload" for="photoInput">
+          📷 Change my photo
+        </label>
+
+        <input
+          type="file"
+          id="photoInput"
+          accept="image/*"
+          hidden
+        >
+
       </div>
+
     </section>
 
     <!-- ABOUT -->
     <section class="section section-anchor" id="about">
-      <div class="section-head reveal"><p class="eyebrow">Get to know me</p><h2>About <span class="grad">Me</span></h2></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">Get to know me</p>
+        <h2>About <span class="grad">Me</span></h2>
+      </div>
+
       <div class="about-grid">
+
         <div class="glass reveal">
-          <p>My name is Moses Samah. I am a Computer Science student at the University of the Cordilleras. I am interested in Information Technology, IT Networking, and software development. I believe that consistent practice, curiosity, and a willingness to learn are important for growing in technology.</p>
-          <p>Through my studies and projects, I am working to strengthen my programming, problem-solving, communication, and technical skills.</p>
+          <p>
+            My name is Moses Samah. I am a Computer Science student
+            at the University of the Cordilleras. I am interested in
+            Information Technology, IT Networking, and software
+            development. I believe that consistent practice,
+            curiosity, and a willingness to learn are important
+            for growing in technology.
+          </p>
+
+          <p>
+            Through my studies and projects, I am working to strengthen
+            my programming, problem-solving, communication, and
+            technical skills.
+          </p>
         </div>
+
         <div class="quick-facts reveal">
-          <div class="fact"><span>🎓</span><div><small>University</small><b>University of the Cordilleras</b></div></div>
-          <div class="fact"><span>💻</span><div><small>Field</small><b>Computer Science</b></div></div>
-          <div class="fact"><span>✉️</span><div><small>Email</small><b>mosesbeyansamah@gmail.com</b></div></div>
+
+          <div class="fact">
+            <span>🎓</span>
+            <div>
+              <small>University</small>
+              <b>University of the Cordilleras</b>
+            </div>
+          </div>
+
+          <div class="fact">
+            <span>💻</span>
+            <div>
+              <small>Field</small>
+              <b>Computer Science</b>
+            </div>
+          </div>
+
+          <div class="fact">
+            <span>✉️</span>
+            <div>
+              <small>Email</small>
+              <b>mosesbeyansamah@gmail.com</b>
+            </div>
+          </div>
+
         </div>
       </div>
+
     </section>
 
     <!-- EDUCATION -->
     <section class="section section-anchor" id="education">
-      <div class="section-head reveal"><p class="eyebrow">My learning journey</p><h2>Education & <span class="grad">Learning</span></h2></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">My learning journey</p>
+        <h2>Education & <span class="grad">Learning</span></h2>
+      </div>
+
       <div class="card-grid">
-        <article class="info-card reveal"><span class="card-icon">🎓</span><h3>University of the Cordilleras</h3><p>My university, where I am developing my knowledge and skills in computing.</p></article>
-        <article class="info-card reveal"><span class="card-icon">💻</span><h3>Computer Science</h3><p>My area of study, focused on computing concepts, programming, and problem-solving.</p></article>
-        <article class="info-card reveal"><span class="card-icon">🌐</span><h3>IT & Networking</h3><p>Areas of interest that help me understand technology, computer systems, and networks.</p></article>
+
+        <article class="info-card reveal">
+          <span class="card-icon">🎓</span>
+          <h3>University of the Cordilleras</h3>
+          <p>
+            My university, where I am developing my knowledge
+            and skills in computing.
+          </p>
+        </article>
+
+        <article class="info-card reveal">
+          <span class="card-icon">💻</span>
+          <h3>Computer Science</h3>
+          <p>
+            My area of study, focused on computing concepts,
+            programming, and problem-solving.
+          </p>
+        </article>
+
+        <article class="info-card reveal">
+          <span class="card-icon">🌐</span>
+          <h3>IT & Networking</h3>
+          <p>
+            Areas of interest that help me understand technology,
+            computer systems, and networks.
+          </p>
+        </article>
+
       </div>
     </section>
 
     <!-- ACHIEVEMENTS -->
     <section class="section section-anchor" id="achievements">
-      <div class="section-head reveal"><p class="eyebrow">My progress</p><h2>Achievements & <span class="grad">Milestones</span></h2></div>
-      <div class="timeline">
-        <div class="t-item reveal"><span class="t-dot">1</span><div class="glass"><h3>Studying Computer Science</h3><p>Continuing my studies and building a strong foundation in computing.</p></div></div>
-        <div class="t-item reveal"><span class="t-dot">2</span><div class="glass"><h3>Programming & Web Development</h3><p>Practising HTML, CSS, JavaScript and Java every week.</p></div></div>
-        <div class="t-item reveal"><span class="t-dot">3</span><div class="glass"><h3>Building Projects</h3><p>Applying what I learn by creating real projects.</p></div></div>
-        <div class="t-item reveal"><span class="t-dot">4</span><div class="glass"><h3>Growing Technical Skills</h3><p>Developing problem-solving and technical skills for my future career.</p></div></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">My progress</p>
+        <h2>Achievements & <span class="grad">Milestones</span></h2>
       </div>
-      <p class="small-note">Tip: add your real certificates and awards here as you earn them.</p>
+
+      <div class="timeline">
+
+        <div class="t-item reveal">
+          <span class="t-dot">1</span>
+          <div class="glass">
+            <h3>Studying Computer Science</h3>
+            <p>
+              Continuing my studies and building a strong
+              foundation in computing.
+            </p>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <span class="t-dot">2</span>
+          <div class="glass">
+            <h3>Programming & Web Development</h3>
+            <p>
+              Practising HTML, CSS, JavaScript and Java every week.
+            </p>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <span class="t-dot">3</span>
+          <div class="glass">
+            <h3>Building Projects</h3>
+            <p>
+              Applying what I learn by creating real projects.
+            </p>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <span class="t-dot">4</span>
+          <div class="glass">
+            <h3>Growing Technical Skills</h3>
+            <p>
+              Developing problem-solving and technical skills
+              for my future career.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="small-note">
+        Add your real certificates and awards here as you earn them.
+      </p>
+
     </section>
 
     <!-- SCHOOL -->
     <section class="section section-anchor" id="school">
-      <div class="section-head reveal"><p class="eyebrow">My university</p><h2>School <span class="grad">Profile</span></h2></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">My university</p>
+        <h2>School <span class="grad">Profile</span></h2>
+      </div>
+
       <div class="school-card reveal">
+
         <div class="school-emblem">UC</div>
+
         <div>
           <h3>University of the Cordilleras</h3>
           <p class="school-subtitle">My University</p>
-          <p>I am studying Computer Science, with interests in Information Technology and IT Networking. My studies help me develop technical knowledge, problem-solving skills, and practical computing abilities for my future career in technology.</p>
-          <div class="tag-list"><span>Computer Science</span><span>Information Technology</span><span>IT Networking</span></div>
+
+          <p>
+            I am studying Computer Science, with interests in
+            Information Technology and IT Networking. My studies
+            help me develop technical knowledge, problem-solving
+            skills, and practical computing abilities for my
+            future career in technology.
+          </p>
+
+          <div class="tag-list">
+            <span>Computer Science</span>
+            <span>Information Technology</span>
+            <span>IT Networking</span>
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- TEACHER -->
     <section class="section section-anchor" id="teacher">
-      <div class="section-head reveal"><p class="eyebrow">Instructor profile</p><h2>My <span class="grad">Teacher</span></h2></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">Instructor profile</p>
+        <h2>My <span class="grad">Teacher</span></h2>
+      </div>
+
       <article class="teacher-card reveal">
+
         <div class="teacher-avatar">FP</div>
+
         <div class="teacher-details">
+
           <p class="eyebrow">Computing Fundamentals</p>
+
           <h3>Dr. Felipe A. Pati, Jr., MCS, PhD</h3>
-          <p class="teacher-role">Instructor – Computing Fundamentals</p>
-          <p>Dr. Felipe A. Pati, Jr. is a professor at the University of the Cordilleras, where he has served since November 6, 1996. Before teaching, he gained six years of industry experience in Manila and Baguio.</p>
+
+          <p class="teacher-role">
+            Instructor – Computing Fundamentals
+          </p>
+
+          <p>
+            Dr. Felipe A. Pati, Jr. is a professor at the
+            University of the Cordilleras, where he has served
+            since November 6, 1996. Before teaching, he gained
+            six years of industry experience in Manila and Baguio.
+          </p>
+
           <h4>Educational Background</h4>
+
           <ul class="nice-list">
-            <li>PhD in Management — University of the Cordilleras, 2006</li>
-            <li>Master of Computer Science — De La Salle University, 2001</li>
-            <li>BS in Electronics and Communications Engineering — Saint Louis University, 1989</li>
+            <li>
+              PhD in Management — University of the Cordilleras, 2006
+            </li>
+            <li>
+              Master of Computer Science — De La Salle University, 2001
+            </li>
+            <li>
+              BS in Electronics and Communications Engineering —
+              Saint Louis University, 1989
+            </li>
           </ul>
+
           <h4>Areas of Expertise</h4>
+
           <div class="tag-list">
-            <span>Computing Fundamentals</span><span>Data Structures & Algorithms</span><span>IT Security</span>
-            <span>Systems Analysis & Design</span><span>Research</span><span>Mathematics</span>
+            <span>Computing Fundamentals</span>
+            <span>Data Structures & Algorithms</span>
+            <span>IT Security</span>
+            <span>Systems Analysis & Design</span>
+            <span>Research</span>
+            <span>Mathematics</span>
           </div>
+
         </div>
       </article>
+
     </section>
 
     <!-- SKILLS -->
     <section class="section section-anchor" id="skills">
-      <div class="section-head reveal"><p class="eyebrow">What I'm learning</p><h2>My <span class="grad">Skills</span></h2>
-      <p class="section-intro">Technologies and skills I am developing through practice and study.</p></div>
-      <div class="skills glass reveal">
-        <div class="skill"><p><span>HTML</span><span>80%</span></p><div class="progress"><span data-w="80"></span></div></div>
-        <div class="skill"><p><span>CSS</span><span>70%</span></p><div class="progress"><span data-w="70"></span></div></div>
-        <div class="skill"><p><span>JavaScript</span><span>55%</span></p><div class="progress"><span data-w="55"></span></div></div>
-        <div class="skill"><p><span>Java</span><span>60%</span></p><div class="progress"><span data-w="60"></span></div></div>
-        <div class="skill"><p><span>Computer Networking</span><span>50%</span></p><div class="progress"><span data-w="50"></span></div></div>
-        <div class="skill"><p><span>Problem Solving</span><span>65%</span></p><div class="progress"><span data-w="65"></span></div></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">What I'm learning</p>
+        <h2>My <span class="grad">Skills</span></h2>
+        <p class="section-intro">
+          Technologies and skills I am developing through practice and study.
+        </p>
       </div>
-      <p class="small-note">Progress bars are illustrative. Adjust them to match your real skill levels.</p>
+
+      <div class="skills glass reveal">
+
+        <div class="skill">
+          <p><span>HTML</span><span>80%</span></p>
+          <div class="progress"><span data-w="80"></span></div>
+        </div>
+
+        <div class="skill">
+          <p><span>CSS</span><span>70%</span></p>
+          <div class="progress"><span data-w="70"></span></div>
+        </div>
+
+        <div class="skill">
+          <p><span>JavaScript</span><span>55%</span></p>
+          <div class="progress"><span data-w="55"></span></div>
+        </div>
+
+        <div class="skill">
+          <p><span>Java</span><span>60%</span></p>
+          <div class="progress"><span data-w="60"></span></div>
+        </div>
+
+        <div class="skill">
+          <p><span>Computer Networking</span><span>50%</span></p>
+          <div class="progress"><span data-w="50"></span></div>
+        </div>
+
+        <div class="skill">
+          <p><span>Problem Solving</span><span>65%</span></p>
+          <div class="progress"><span data-w="65"></span></div>
+        </div>
+
+      </div>
+
+      <p class="small-note">
+        Progress bars are illustrative. Adjust them to match your real skill levels.
+      </p>
+
     </section>
 
     <!-- PROJECTS -->
     <section class="section section-anchor" id="projects">
-      <div class="section-head reveal"><p class="eyebrow">Practice into progress</p><h2>Featured <span class="grad">Projects</span></h2></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">Practice into progress</p>
+        <h2>Featured <span class="grad">Projects</span></h2>
+      </div>
+
       <div class="card-grid">
-        <article class="project-card reveal"><span class="project-number">Project 01</span><h3>Personal Portfolio</h3><p>A responsive website to introduce my background, education, skills, and interests.</p><div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></article>
-        <article class="project-card reveal"><span class="project-number">Project 02</span><h3>Student Management</h3><p>A programming practice project for organising student records and information.</p><div class="tag-list"><span>Java</span><span>OOP</span></div></article>
-        <article class="project-card reveal"><span class="project-number">Project 03</span><h3>Calculator</h3><p>A simple project for practising calculations, logic, and user interaction.</p><div class="tag-list"><span>JavaScript</span><span>Logic</span></div></article>
+
+        <article class="project-card reveal">
+          <span class="project-number">Project 01</span>
+          <h3>Personal Portfolio</h3>
+          <p>
+            A responsive website to introduce my background,
+            education, skills, and interests.
+          </p>
+          <div class="tag-list">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <span class="project-number">Project 02</span>
+          <h3>Student Management</h3>
+          <p>
+            A programming practice project for organising
+            student records and information.
+          </p>
+          <div class="tag-list">
+            <span>Java</span><span>OOP</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <span class="project-number">Project 03</span>
+          <h3>Calculator</h3>
+          <p>
+            A simple project for practising calculations,
+            logic, and user interaction.
+          </p>
+          <div class="tag-list">
+            <span>JavaScript</span><span>Logic</span>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- GALLERY -->
     <section class="section section-anchor" id="gallery">
-      <div class="section-head reveal"><p class="eyebrow">Moments & work</p><h2>My <span class="grad">Gallery</span></h2>
-      <p class="section-intro">Add photos of yourself, your school, projects, or certificates.</p></div>
-      <label class="btn secondary upload-button" for="galleryInput">＋ Add gallery photos</label>
-      <input type="file" id="galleryInput" accept="image/*" multiple hidden>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">Moments & work</p>
+        <h2>My <span class="grad">Gallery</span></h2>
+        <p class="section-intro">
+          Add photos of yourself, your school, projects, or certificates.
+        </p>
+      </div>
+
+      <label class="btn secondary upload-button" for="galleryInput">
+        ＋ Add gallery photos
+      </label>
+
+      <input
+        type="file"
+        id="galleryInput"
+        accept="image/*"
+        multiple
+        hidden
+      >
+
       <div id="galleryPhotos" class="gallery-photos"></div>
+
     </section>
 
     <!-- GOALS -->
     <section class="section section-anchor" id="goals">
-      <div class="section-head reveal"><p class="eyebrow">The future I'm building</p><h2>My <span class="grad">Goals</span></h2></div>
-      <p class="goals-lead reveal">My goal is to become a skilled technology professional with strong software development and IT networking knowledge. I want to keep learning, improve my practical experience, and use technology to create useful solutions that help people.</p>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">The future I'm building</p>
+        <h2>My <span class="grad">Goals</span></h2>
+      </div>
+
+      <p class="goals-lead reveal">
+        My goal is to become a skilled technology professional
+        with strong software development and IT networking knowledge.
+        I want to keep learning, improve my practical experience,
+        and use technology to create useful solutions that help people.
+      </p>
+
       <div class="goal-list">
-        <div class="goal reveal"><span>01</span><p>Strengthen my programming skills.</p></div>
-        <div class="goal reveal"><span>02</span><p>Build useful and reliable projects.</p></div>
-        <div class="goal reveal"><span>03</span><p>Grow my knowledge of computer networks and IT systems.</p></div>
-        <div class="goal reveal"><span>04</span><p>Continue learning and prepare for a career in technology.</p></div>
+
+        <div class="goal reveal">
+          <span>01</span>
+          <p>Strengthen my programming skills.</p>
+        </div>
+
+        <div class="goal reveal">
+          <span>02</span>
+          <p>Build useful and reliable projects.</p>
+        </div>
+
+        <div class="goal reveal">
+          <span>03</span>
+          <p>Grow my knowledge of computer networks and IT systems.</p>
+        </div>
+
+        <div class="goal reveal">
+          <span>04</span>
+          <p>Continue learning and prepare for a career in technology.</p>
+        </div>
+
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="section section-anchor" id="contact">
-      <div class="section-head reveal"><p class="eyebrow">Let's connect</p><h2>Contact <span class="grad">Me</span></h2>
-      <p class="section-intro">Have a question, an idea, or an opportunity? Send me a message and I'll reply by email.</p></div>
+
+      <div class="section-head reveal">
+        <p class="eyebrow">Let's connect</p>
+        <h2>Contact <span class="grad">Me</span></h2>
+        <p class="section-intro">
+          Have a question, an idea, or an opportunity?
+          Send me a message and I'll reply by email.
+        </p>
+      </div>
+
       <div class="contact-wrap reveal">
+
         <aside class="contact-info">
+
           <h3>Let's talk</h3>
-          <p>I'm open to questions, collaborations and learning opportunities.</p>
+
+          <p>
+            I'm open to questions, collaborations and learning opportunities.
+          </p>
+
           <a class="contact-item" href="mailto:mosesbeyansamah@gmail.com">
-            <span>✉️</span><div><small>Email</small><b>mosesbeyansamah@gmail.com</b></div>
+            <span>✉️</span>
+            <div>
+              <small>Email</small>
+              <b>mosesbeyansamah@gmail.com</b>
+            </div>
           </a>
-          <div class="contact-item"><span>🎓</span><div><small>University</small><b>University of the Cordilleras</b></div></div>
-          <div class="contact-item"><span>⚡</span><div><small>Response time</small><b>Usually within 1–2 days</b></div></div>
+
+          <div class="contact-item">
+            <span>🎓</span>
+            <div>
+              <small>University</small>
+              <b>University of the Cordilleras</b>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span>⚡</span>
+            <div>
+              <small>Response time</small>
+              <b>Usually within 1–2 days</b>
+            </div>
+          </div>
+
         </aside>
 
         <form id="contactForm" class="contact-form" novalidate>
-          <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off" style="display:none">
+
+          <input
+            type="text"
+            name="_honey"
+            id="honey"
+            tabindex="-1"
+            autocomplete="off"
+            style="display:none"
+          >
+
           <div class="form-row">
-            <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required></div>
-            <div class="field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required></div>
+
+            <div class="field">
+              <label for="name">Full name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your full name"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+
           </div>
-          <div class="field"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What is this about?" required></div>
-          <div class="field"><label for="message">Message <em id="count">0/1000</em></label><textarea id="message" name="message" rows="6" maxlength="1000" placeholder="Write your message here..." required></textarea></div>
-          <button class="btn primary submit" type="submit" id="sendBtn"><span class="btn-label">Send message ✈</span><span class="spinner" hidden></span></button>
+
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="What is this about?"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="message">
+              Message <em id="count">0/1000</em>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              maxlength="1000"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+          </div>
+
+          <button class="btn primary submit" type="submit" id="sendBtn">
+            <span class="btn-label">Send message ✈</span>
+            <span class="spinner" hidden></span>
+          </button>
+
           <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+
         </form>
+
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <a href="#home" class="logo"><span class="logo-mark">MS</span><span>Moses Samah</span></a>
+
+    <a href="#home" class="logo">
+      <span class="logo-mark">MS</span>
+      <span>Moses Samah</span>
+    </a>
+
     <p>Learning today. Building for tomorrow.</p>
-    <p><a href="mailto:mosesbeyansamah@gmail.com">mosesbeyansamah@gmail.com</a></p>
-    <small>© <span id="year"></span> Moses Samah. All rights reserved.</small>
+
+    <p>
+      <a href="mailto:mosesbeyansamah@gmail.com">
+        mosesbeyansamah@gmail.com
+      </a>
+    </p>
+
+    <small>
+      © <span id="year"></span> Moses Samah. All rights reserved.
+    </small>
+
   </footer>
+
+  <!-- Ensure the photo and photo-upload button work -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const photoInput = document.getElementById("photoInput");
+      const profilePreview = document.getElementById("profilePreview");
+      const profilePlaceholder = document.getElementById("profilePlaceholder");
+
+      // Show the saved profile photo when the page opens.
+      profilePreview.addEventListener("load", function () {
+        profilePreview.hidden = false;
+        profilePlaceholder.hidden = true;
+      });
+
+      // Let you select a different profile photo.
+      photoInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+          alert("Please select an image file.");
+          return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          profilePreview.src = e.target.result;
+          profilePreview.hidden = false;
+          profilePlaceholder.hidden = true;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+
 </body>
 </html>
